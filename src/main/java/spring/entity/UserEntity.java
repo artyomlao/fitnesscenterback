@@ -2,6 +2,7 @@ package spring.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import spring.model.Role;
@@ -9,6 +10,7 @@ import spring.model.Status;
 
 @Entity @Table
 @Getter @Setter
+@NoArgsConstructor
 @Accessors(chain = true)
 public class UserEntity {
 
