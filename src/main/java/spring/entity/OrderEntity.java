@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,10 +12,11 @@ import java.util.List;
 @Entity @Table
 @Getter @Setter
 @NoArgsConstructor
+@Accessors(chain = true)
 public class OrderEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     @OneToMany(mappedBy = "orderEntity")

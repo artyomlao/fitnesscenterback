@@ -4,12 +4,14 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
 @Entity @Table
 @Getter @Setter
 @NoArgsConstructor
+@Accessors(chain = true)
 public class CategoryEntity {
 
     @Id

@@ -31,8 +31,15 @@ public class CategoryService {
         return categoryRepository.save(categoryEntity);
     }
 
-    public CategoryEntity updateCategory(final CategoryEntity categoryEntity) {
+    public CategoryEntity updateCategory(final CategoryEntity entityToUpdate)
+            throws EntityNotFoundException {
 
+        final CategoryEntity oldEntity = categoryRepository.findById(entityToUpdate.getId())
+                .orElseThrow(() -> new EntityNotFoundException(CategoryEntity.class, "No such entity to update"));
+
+        return categoryRepository.save(oldEntity.setId(entityToUpdate.getId())
+                .setName(entityToUpdate.getName())
+                .setDescription(entityToUpdate.getDescription()));
     }
 
     public void deleteCategory(final Long id) {

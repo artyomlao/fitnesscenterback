@@ -39,9 +39,10 @@ public class CategoryController {
 
     @PutMapping
     public ResponseEntity<CategoryEntity> update(
-            final @RequestBody CategoryEntity categoryEntity, final @RequestParam Long id) {
+            final @RequestBody CategoryEntity categoryEntity)
+            throws EntityNotFoundException {
 
-        return ResponseEntity.ok(categoryService.insertCategory(categoryEntity));
+        return ResponseEntity.ok(categoryService.updateCategory(categoryEntity));
     }
 
     @DeleteMapping

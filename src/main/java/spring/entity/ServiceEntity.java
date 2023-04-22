@@ -4,15 +4,16 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 @Entity @Table
 @Getter @Setter
 @NoArgsConstructor
+@Accessors(chain = true)
 public class ServiceEntity {
 
     @Id
-    @Basic
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     @Basic
