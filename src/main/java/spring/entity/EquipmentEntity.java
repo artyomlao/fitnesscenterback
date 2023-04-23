@@ -26,6 +26,6 @@ public class EquipmentEntity {
     @Column
     private String description;
 
-    @OneToMany(mappedBy = "equipmentEntity")
-    private List<ServiceEntity> serviceEntities;
+    @OneToMany(mappedBy = "equipment")
+    private List<ServiceEquipmentEntity> serviceEntities;
 }

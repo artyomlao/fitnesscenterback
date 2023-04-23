@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+import java.util.List;
+
 @Entity @Table
 @Getter @Setter
 @NoArgsConstructor
@@ -32,7 +34,6 @@ public class ServiceEntity {
     @JoinColumn(name = "order_entity_id", nullable = false)
     private OrderEntity orderEntity;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "equipment_entity_id")
-    private EquipmentEntity equipmentEntity;
+    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
+    private List<ServiceEquipmentEntity> equipmentEntity;
 }

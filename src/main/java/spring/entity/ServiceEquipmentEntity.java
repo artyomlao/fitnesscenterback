@@ -6,13 +6,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import java.time.LocalDateTime;
-
 @Entity @Table
 @Getter @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
-public class OrderEntity {
+public class ServiceEquipmentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,13 +18,9 @@ public class OrderEntity {
 
     @ManyToOne
     @JoinColumn(name = "service_id", referencedColumnName = "id")
-    private ServiceEntity serviceEntity;
+    private ServiceEntity service;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private UserEntity userEntity;
-
-    @Basic
-    @Column
-    private LocalDateTime insertTime;
+    @JoinColumn(name = "equipment_id", referencedColumnName = "id")
+    private EquipmentEntity equipment;
 }
