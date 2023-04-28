@@ -30,10 +30,6 @@ public class ServiceEntity {
     @JoinColumn(name = "category_entity_id")
     private CategoryEntity categoryEntity;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_entity_id", nullable = false)
-    private OrderEntity orderEntity;
-
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
     private List<ServiceEquipmentEntity> equipmentEntity;
 }
