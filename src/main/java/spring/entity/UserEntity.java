@@ -1,5 +1,6 @@
 package spring.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ public class UserEntity {
     private String email;
 
     @Column
+    @JsonIgnore
     private String password;
 
     @Column
