@@ -1,22 +1,26 @@
 package fitness.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import fitness.model.Role;
+import fitness.model.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import fitness.model.Role;
-import fitness.model.Status;
 
-@Entity @Table
-@Getter @Setter
+import java.time.LocalDateTime;
+
+@Entity
+@Table
+@Getter
+@Setter
 @NoArgsConstructor
 @Accessors(chain = true)
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
@@ -36,4 +40,7 @@ public class UserEntity {
     @Enumerated(value = EnumType.STRING)
     @Column
     private Role role;
+
+    @Column
+    private LocalDateTime registrationTime;
 }

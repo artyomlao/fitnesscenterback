@@ -33,5 +33,5 @@ public class OrderEntity {
 
     @Basic
     @Column
-    private LocalDateTime insertTime;
+    private LocalDateTime orderTime;
 }

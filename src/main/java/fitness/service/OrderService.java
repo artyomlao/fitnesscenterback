@@ -41,7 +41,7 @@ public class OrderService {
     }
 
     public OrderEntity insertOrder(final OrderEntity orderEntity) {
-        return orderRepository.save(orderEntity.setInsertTime(LocalDateTime.now()));
+        return orderRepository.save(orderEntity.setOrderTime(LocalDateTime.now()));
     }
 
     public OrderEntity updateOrder(final OrderEntity entityToUpdate)
@@ -53,7 +53,7 @@ public class OrderService {
         return orderRepository.save(oldEntity
                 .setServiceEntity(entityToUpdate.getServiceEntity())
                 .setUserEntity(entityToUpdate.getUserEntity())
-                .setInsertTime(entityToUpdate.getInsertTime()));
+                .setOrderTime(entityToUpdate.getOrderTime()));
     }
 
     public void deleteOrder(final Long id) {

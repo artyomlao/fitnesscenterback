@@ -20,13 +20,12 @@ public class SecurityUser {
     private final String password;
     private final List<SimpleGrantedAuthority> authorities;
 
-    public static UserDetails getUser(UserEntity user) {
+    public static UserDetails getUser(final UserEntity user) {
         return new User(user.getEmail(), user.getPassword(),
                 user.getStatus().equals(Status.ACTIVE),
                 user.getStatus().equals(Status.ACTIVE),
                 user.getStatus().equals(Status.ACTIVE),
                 user.getStatus().equals(Status.ACTIVE),
-                new HashSet<>()
-        );
+                new HashSet<>());
     }
 }

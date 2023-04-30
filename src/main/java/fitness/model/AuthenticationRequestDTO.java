@@ -1,4 +1,4 @@
-package fitness.dto;
+package fitness.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,5 +11,6 @@ import lombok.experimental.Accessors;
 public class AuthenticationRequestDTO {
 
     private String email;
+    private String name;
     private String password;
 }
