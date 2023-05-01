@@ -1,5 +1,6 @@
 package fitness.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,5 +28,6 @@ public class CategoryEntity {
     private String description;
 
     @OneToMany(mappedBy = "categoryEntity")
+    @JsonBackReference
     private List<ServiceEntity> serviceEntities;
 }

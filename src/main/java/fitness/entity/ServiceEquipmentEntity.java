@@ -1,6 +1,7 @@
 package fitness.entity;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -27,5 +28,6 @@ public class ServiceEquipmentEntity {
 
     @ManyToOne
     @JoinColumn(name = "equipment_id", referencedColumnName = "id")
+    @JsonManagedReference
     private EquipmentEntity equipment;
 }
