@@ -1,7 +1,7 @@
 package fitness.controller;
 
-import fitness.model.AuthenticationRequestDTO;
 import fitness.entity.UserEntity;
+import fitness.model.AuthenticationRequestDTO;
 import fitness.security.JwtTokenProvider;
 import fitness.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -11,6 +11,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,7 +36,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(final @RequestBody AuthenticationRequestDTO request) {
-        Map<Object, Object> response = new HashMap<>();
+        final Map<Object, Object> response = new HashMap<>();
         try {
             final UserEntity user = userService.findByEmail(request.getEmail());
 
@@ -55,5 +56,10 @@ public class AuthController {
     @PostMapping("/registration")
     public ResponseEntity<?> registration(final @RequestBody AuthenticationRequestDTO user) {
         return ResponseEntity.ok(userService.signUp(user));
+    }
+
+    @GetMapping("/myself")
+    public ResponseEntity<?> getMe(final Principal principal) {
+        return ResponseEntity.ok(userService.findByEmail(principal.getName()));
     }
 }

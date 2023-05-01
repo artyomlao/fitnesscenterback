@@ -1,11 +1,12 @@
 package fitness.controller;
 
+import fitness.entity.OrderEntity;
+import fitness.exception.EntityNotFoundException;
+import fitness.model.OrderDTO;
+import fitness.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import fitness.entity.OrderEntity;
-import fitness.exception.EntityNotFoundException;
-import fitness.service.OrderService;
 
 import java.util.List;
 
@@ -32,8 +33,8 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<OrderEntity> add(final @RequestBody OrderEntity orderEntity) {
-        return ResponseEntity.ok(orderService.insertOrder(orderEntity));
+    public ResponseEntity<OrderEntity> saveOrder(final @RequestBody OrderDTO orderDTO) throws EntityNotFoundException {
+        return ResponseEntity.ok(orderService.insertOrder(orderDTO));
     }
 
     @PutMapping
