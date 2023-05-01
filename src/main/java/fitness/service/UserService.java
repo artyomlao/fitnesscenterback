@@ -1,12 +1,12 @@
 package fitness.service;
 
 import fitness.entity.UserEntity;
+import fitness.exception.UserAlreadyExistsException;
 import fitness.exception.UserNotFoundException;
 import fitness.model.AuthenticationRequestDTO;
 import fitness.model.Role;
 import fitness.model.Status;
 import fitness.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +22,10 @@ public class UserService {
     }
 
     public UserEntity signUp(final AuthenticationRequestDTO userDto) {
+        if (userRepository.findFirstByEmail(userDto.getEmail()).isPresent()) {
+            throw new UserAlreadyExistsException("User with such login already exists. Choose another one");
+        }
+
         return userRepository.save(new UserEntity().setEmail(userDto.getEmail())
                 .setName(userDto.getName())
                 .setPassword(new BCryptPasswordEncoder(12).encode(userDto.getPassword()))

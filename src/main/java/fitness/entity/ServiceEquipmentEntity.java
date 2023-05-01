@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-@Entity @Table
+@Entity @Table(name = "service_equipment")
 @Getter @Setter
 @NoArgsConstructor
 @Accessors(chain = true)

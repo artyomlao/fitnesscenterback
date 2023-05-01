@@ -11,10 +11,8 @@ import lombok.experimental.Accessors;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table
-@Getter
-@Setter
+@Entity @Table(name = "users")
+@Getter @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
 public class UserEntity {

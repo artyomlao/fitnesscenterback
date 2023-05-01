@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
 
 import java.util.List;
 
-@Entity @Table
+@Entity @Table(name = "services")
 @Getter @Setter
 @NoArgsConstructor
 @Accessors(chain = true)

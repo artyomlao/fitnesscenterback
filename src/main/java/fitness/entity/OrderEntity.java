@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
 
 import java.time.LocalDateTime;
 
-@Entity @Table
+@Entity @Table(name = "orders")
 @Getter @Setter
 @NoArgsConstructor
 @Accessors(chain = true)

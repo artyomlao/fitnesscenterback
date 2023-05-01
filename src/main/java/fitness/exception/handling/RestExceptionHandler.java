@@ -1,5 +1,6 @@
 package fitness.exception.handling;
 
+import fitness.exception.UserAlreadyExistsException;
 import fitness.exception.UserNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -16,12 +17,18 @@ public class RestExceptionHandler {
     @ExceptionHandler({EntityNotFoundException.class})
     @ResponseBody
     public ResponseEntity<?> handleFieldException(final EntityNotFoundException e, final HttpServletRequest req) {
-        return new ResponseEntity<>(new EntityNotFoundResponse(e.getClass().getCanonicalName(), e.getMessage()), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(new EntityNotFoundResponse(e.getClass().getCanonicalName(), e.getMessage()), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler({UserNotFoundException.class})
     @ResponseBody
     public ResponseEntity<?> handleFieldException(final UserNotFoundException e, final HttpServletRequest req) {
+        return new ResponseEntity<>(new EntityNotFoundResponse(e.getClass().getCanonicalName(), e.getMessage()), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler({UserAlreadyExistsException.class})
+    @ResponseBody
+    public ResponseEntity<?> handleFieldException(final UserAlreadyExistsException e, final HttpServletRequest req) {
         return new ResponseEntity<>(new EntityNotFoundResponse(e.getClass().getCanonicalName(), e.getMessage()), HttpStatus.BAD_REQUEST);
     }
 }

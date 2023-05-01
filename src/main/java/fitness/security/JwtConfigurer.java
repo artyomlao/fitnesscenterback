@@ -13,12 +13,12 @@ public class JwtConfigurer extends SecurityConfigurerAdapter<DefaultSecurityFilt
     private JwtFilter jwtFilter;
 
     @Autowired
-    public JwtConfigurer(JwtFilter jwtFilter) {
+    public JwtConfigurer(final JwtFilter jwtFilter) {
         this.jwtFilter = jwtFilter;
     }
 
     @Override
-    public void configure(HttpSecurity builder) throws Exception {
+    public void configure(final HttpSecurity builder) {
         builder.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }

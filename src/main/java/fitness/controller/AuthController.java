@@ -47,7 +47,7 @@ public class AuthController {
 
             return ResponseEntity.ok(response);
         } catch (final AuthenticationException e) {
-            response.put("message", "Invalid email/password combination");
+            response.put("message", "Invalid password");
             return new ResponseEntity<>(response, HttpStatus.FORBIDDEN);
         }
     }
