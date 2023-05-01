@@ -1,11 +1,11 @@
 package fitness.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import fitness.entity.ServiceEntity;
 import fitness.exception.EntityNotFoundException;
 import fitness.service.ServiceService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 

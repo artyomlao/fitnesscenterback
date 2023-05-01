@@ -67,7 +67,7 @@ public class JwtTokenProvider {
                     .getExpiration()
                     .before(new Date());
         } catch (final JwtException | IllegalArgumentException e) {
-            throw new JwtAuthenticationException("JWT token is incorrect or expired", HttpStatus.UNAUTHORIZED);
+            throw new JwtAuthenticationException("JWT token is incorrect or expired", HttpStatus.FORBIDDEN);
         }
     }
 
