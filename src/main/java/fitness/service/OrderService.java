@@ -12,6 +12,7 @@ import fitness.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -58,7 +59,8 @@ public class OrderService {
 
         return orderRepository.save(new OrderEntity()
                 .setServiceEntity(serviceEntity)
-                .setUserEntity(userEntity));
+                .setUserEntity(userEntity)
+                .setOrderTime(LocalDateTime.now()));
     }
 
     public OrderEntity updateOrder(final OrderEntity entityToUpdate)
