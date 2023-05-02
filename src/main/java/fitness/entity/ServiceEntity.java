@@ -29,7 +29,7 @@ public class ServiceEntity {
     private Double price;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "category_entity_id")
+    @JoinColumn(name = "category_entity_id", nullable = false)
     @JsonManagedReference
     private CategoryEntity categoryEntity;
 

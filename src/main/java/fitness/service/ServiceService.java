@@ -1,5 +1,6 @@
 package fitness.service;
 
+import fitness.entity.CategoryEntity;
 import fitness.entity.ServiceEntity;
 import fitness.exception.EntityNotFoundException;
 import fitness.model.ServiceDTO;
@@ -33,8 +34,8 @@ public class ServiceService {
     public ServiceEntity insertService(final ServiceDTO serviceDTO) throws EntityNotFoundException {
         return serviceRepository.save(new ServiceEntity()
                 .setName(serviceDTO.getName())
-                .setPrice(serviceDTO.getPrice()))
-                .setCategoryEntity(categoryService.getById(serviceDTO.getCategoryId()));
+                .setPrice(serviceDTO.getPrice())
+                .setCategoryEntity(categoryService.getById(serviceDTO.getCategoryId())));
     }
 
     public ServiceEntity updateService(final ServiceEntity entityToUpdate)
