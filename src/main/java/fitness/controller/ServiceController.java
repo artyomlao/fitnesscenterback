@@ -2,6 +2,7 @@ package fitness.controller;
 
 import fitness.entity.ServiceEntity;
 import fitness.exception.EntityNotFoundException;
+import fitness.model.ServiceDTO;
 import fitness.service.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,8 +35,10 @@ public class ServiceController {
     }
 
     @PostMapping
-    public ResponseEntity<ServiceEntity> add(final @RequestBody ServiceEntity serviceEntity) {
-        return ResponseEntity.ok(serviceService.insertService(serviceEntity));
+    public ResponseEntity<ServiceEntity> add(final @RequestBody ServiceDTO serviceDTO)
+            throws EntityNotFoundException {
+
+        return ResponseEntity.ok(serviceService.insertService(serviceDTO));
     }
 
     @PutMapping
