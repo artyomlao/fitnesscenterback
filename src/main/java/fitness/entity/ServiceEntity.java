@@ -1,6 +1,7 @@
 package fitness.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -36,4 +37,8 @@ public class ServiceEntity {
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
     @JsonBackReference
     private List<ServiceEquipmentEntity> equipmentEntity;
+
+    @OneToMany(mappedBy = "serviceEntity", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<OrderEntity> orders;
 }

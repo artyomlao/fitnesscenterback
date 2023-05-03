@@ -27,7 +27,7 @@ public class CategoryEntity {
     @Column
     private String description;
 
-    @OneToMany(mappedBy = "categoryEntity")
+    @OneToMany(mappedBy = "categoryEntity", cascade = CascadeType.ALL)
     @JsonBackReference
     private List<ServiceEntity> serviceEntities;
 }
