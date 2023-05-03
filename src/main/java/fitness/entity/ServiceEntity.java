@@ -2,7 +2,6 @@ package fitness.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,8 +29,8 @@ public class ServiceEntity {
     private Double price;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "category_entity_id", nullable = false)
-    @JsonManagedReference
+    @JoinColumn(name = "category_entity_id")
+    @JsonBackReference(value = "categoryService")
     private CategoryEntity categoryEntity;
 
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)

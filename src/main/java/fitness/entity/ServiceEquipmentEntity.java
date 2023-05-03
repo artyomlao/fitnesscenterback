@@ -1,6 +1,5 @@
 package fitness.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +22,5 @@ public class ServiceEquipmentEntity {
 
     @ManyToOne
     @JoinColumn(name = "equipment_id", referencedColumnName = "id")
-    @JsonManagedReference
     private EquipmentEntity equipment;
 }

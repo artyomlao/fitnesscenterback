@@ -1,5 +1,6 @@
 package fitness.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,5 +28,6 @@ public class EquipmentEntity {
     private String description;
 
     @OneToMany(mappedBy = "equipment")
+    @JsonIgnore
     private List<ServiceEquipmentEntity> serviceEntities;
 }
